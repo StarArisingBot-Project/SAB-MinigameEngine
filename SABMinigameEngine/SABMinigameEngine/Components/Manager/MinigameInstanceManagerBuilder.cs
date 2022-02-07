@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SABMinigamesEngine
+namespace StarArisingBot.MinigameEngine
 {
     public class MinigameInstanceManagerBuilder
     {

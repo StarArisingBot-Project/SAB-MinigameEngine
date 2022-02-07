@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SABMinigameEngine</name>
+    </assembly>
+    <members>
+        <member name="T:StarArisingBot.MinigameEngine.MinigameInstance">
+            <summary>
+            The instance of a minigame.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameInstance.MinigameModule">
+            <summary>
+            The minigame module.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameInstance.Sessions">
+            <summary>
+            Active sessions of the current Instance.
+            </summary>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameInstance.CreateNewSessionAsync(DSharpPlus.CommandsNext.CommandContext,StarArisingBot.MinigameEngine.MinigameModule,StarArisingBot.MinigameEngine.MinigameSessionBuilder,System.Object[])">
+            <summary>
+            Creates an active session in the current instance. 
+            </summary>
+            <param name="context">The context in which the session is being created.</param>
+            <param name="minigame">The class of the mini game that is logged in.</param>
+            <param name="minigameParams">The parameters that will be passed to the minigame.</param>
+            <param name="builder">The session rule builder.</param>
+            <returns>The status of success.</returns>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameInstance.DisconnectSessionAsync(System.UInt64)">
+            <summary>
+            Remove and disconnect an active session from the current Instance.
+            </summary>
+            <param name="sectionId">The ID of the author responsible for creating the session.</param>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameInstance.RemoveSessionAsync(System.UInt64)">
+            <summary>
+            Remove an active session from the current Instance.
+            </summary>
+            <param name="sectionId">The ID of the author responsible for creating the session.</param>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameInstance.GetSessionAsync(System.UInt64)">
+            <summary>
+            Get an active session.
+            </summary>
+            <param name="sectionID">The ID of the author responsible for creating the session.</param>
+            <returns>Returns an active session.</returns>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameInstance.GetSessionAsync(StarArisingBot.MinigameEngine.MinigameSessionAuthorType,System.UInt64)">
+            <summary>
+            Get an active session.
+            </summary>
+            <param name="authorType">The session author type.</param>
+            <param name="sectionID">The ID of the author responsible for creating the session.</param>
+            <returns>Returns an active session.</returns>
+        </member>
+        <member name="T:StarArisingBot.MinigameEngine.MinigameModule">
+            <summary>
+            Represents a minigame module.
+            <br/><br/>
+            For a class to be considered a module it must always end with "Minigame". 
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameModule.Context">
+            <summary>
+            The Context in which the minigame is being played out.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameModule.Client">
+            <summary>
+            The bot client.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameModule.Session">
+            <summary>
+            The current minigame session.
+            </summary>
+        </member>
+        <member name="E:StarArisingBot.MinigameEngine.MinigameModule.OnMinigameStarted">
+            <summary>
+            Event triggered after minigame launch. 
+            </summary>
+        </member>
+        <member name="E:StarArisingBot.MinigameEngine.MinigameModule.OnMinigameCanceled">
+            <summary>
+            Event activated after canceling the minigame.
+            </summary>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameModule.OnStarted(System.Object[])">
+            <summary>
+            The start of the minigame. 
+            </summary>
+            <param name="minigameParams">The minigame parameters.</param>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameModule.OnCanceled">
+            <summary>
+            When a cancel request is initiated, this method will be executed.
+            </summary>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameModule.FinalizeMinigameAsync">
+            <summary>
+            Finish the current minigame. 
+            </summary>
+        </member>
+        <member name="T:StarArisingBot.MinigameEngine.StatusMessageType">
+            <summary>
+            Represents a type of status message.
+            </summary>
+        </member>
+        <member name="F:StarArisingBot.MinigameEngine.StatusMessageType.Accepted">
+            <summary>
+            It means success. The command executed did not have any errors. 
+            </summary>
+        </member>
+        <member name="F:StarArisingBot.MinigameEngine.StatusMessageType.Refused">
+            <summary>
+            It means failure. The command executed had no error but something prevented it from working.
+            </summary>
+        </member>
+        <member name="F:StarArisingBot.MinigameEngine.StatusMessageType.Error">
+            <summary>
+            It means error. The command executed had an error that the system could not handle. 
+            </summary>
+        </member>
+        <member name="T:StarArisingBot.MinigameEngine.MinigameStatusMessage">
+            <summary>
+            Base class for communication between minigames. 
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameStatusMessage.Status">
+            <summary>
+            Success status the command obtained. 
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameStatusMessage.Message">
+            <summary>
+            Detailed message about execution. 
+            </summary>
+        </member>
+        <member name="T:StarArisingBot.MinigameEngine.MinigameSession">
+            <summary>
+            Represents a minigame that is running.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSession.SectionID">
+            <summary>
+            The ID of the current session.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSession.Context">
+            <summary>
+            The context in which the session is running.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSession.CreationTimestamp">
+            <summary>
+            The date this session was created.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSession.SessionInfos">
+            <summary>
+            Current session information.
+            </summary>
+        </member>
+        <member name="E:StarArisingBot.MinigameEngine.MinigameSession.OnSessionDisconnected">
+            <summary>
+            Invoked if the session is disconnected.
+            </summary>
+        </member>
+        <member name="T:StarArisingBot.MinigameEngine.MinigameSessionInvokeType">
+            <summary>
+            The way the session is invoked.
+            </summary>
+        </member>
+        <member name="F:StarArisingBot.MinigameEngine.MinigameSessionInvokeType.None">
+            <summary>
+            The session can be invoked without any limit.
+            </summary>
+        </member>
+        <member name="F:StarArisingBot.MinigameEngine.MinigameSessionInvokeType.Guild">
+            <summary>
+            The invoked session is restricted by guilds only.
+            </summary>
+        </member>
+        <member name="F:StarArisingBot.MinigameEngine.MinigameSessionInvokeType.Channel">
+            <summary>
+            The invoked session is restricted to channels only.
+            </summary>
+        </member>
+        <member name="F:StarArisingBot.MinigameEngine.MinigameSessionInvokeType.User">
+            <summary>
+            The invoked session is restricted to users only. 
+            </summary>
+        </member>
+        <member name="T:StarArisingBot.MinigameEngine.MinigameSessionAuthorType">
+            <summary>
+            The author type of a session.
+            </summary>
+        </member>
+        <member name="F:StarArisingBot.MinigameEngine.MinigameSessionAuthorType.Guild">
+            <summary>
+            The Author of the session will be the guild.
+            </summary>
+        </member>
+        <member name="F:StarArisingBot.MinigameEngine.MinigameSessionAuthorType.Channel">
+            <summary>
+            The Author of the session will be the channel on which it was invoked.
+            </summary>
+        </member>
+        <member name="F:StarArisingBot.MinigameEngine.MinigameSessionAuthorType.User">
+            <summary>
+            The Author of the session will be the user who invoked it.
+            </summary>
+        </member>
+        <member name="T:StarArisingBot.MinigameEngine.MinigameSessionBuilder">
+            <summary>
+            Class for creating sessions.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionBuilder.Name">
+            <summary>
+            The session name;
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionBuilder.InvokeType">
+            <summary>
+            The way the session is invoked.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionBuilder.AuthorType">
+            <summary>
+            The session author type.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionBuilder.PlayersSettings">
+            <summary>
+            The configuration of players in the session.
+            </summary>
+        </member>
+        <member name="T:StarArisingBot.MinigameEngine.MinigameSessionBuilder.PlayersConfig">
+            <summary>
+            Base class for minigame player configuration.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionBuilder.PlayersConfig.UsersPlaying">
+            <summary>
+            Amount of players who will play.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionBuilder.PlayersConfig.MinPlayers">
+            <summary>
+            Minimum number of players for the minigame to start.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionBuilder.PlayersConfig.MaxPlayers">
+            <summary>
+            Maximum number of players the minigame can have.
+            <br/><br/>
+            <remark>-1 means infinite players.</remark>
+            </summary>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameSessionBuilder.ToSessionInfos">
+            <summary>
+            Converts the constructor to readable information.
+            </summary>
+            <returns>Information for reading.</returns>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionInfos.Name">
+            <summary>
+            The session name;
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionInfos.InvokeType">
+            <summary>
+            The way the session is invoked.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionInfos.AuthorType">
+            <summary>
+            The session author type.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionInfos.PlayersInfos">
+            <summary>
+            The configuration of players in the session.
+            </summary>
+        </member>
+        <member name="T:StarArisingBot.MinigameEngine.MinigameSessionInfos.PlayersConfigInfos">
+            <summary>
+            Base class for minigame player configuration.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionInfos.PlayersConfigInfos.UsersPlaying">
+            <summary>
+            Amount of players who will play.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionInfos.PlayersConfigInfos.MinPlayers">
+            <summary>
+            Minimum number of players for the minigame to start.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameSessionInfos.PlayersConfigInfos.MaxPlayers">
+            <summary>
+            Maximum number of players the minigame can have.
+            <br/><br/>
+            <remark>-1 means infinite players.</remark>
+            </summary>
+        </member>
+        <member name="T:StarArisingBot.MinigameEngine.MinigameInstanceClient">
+            <summary>
+            Manager responsible for controlling the flow of minigames.
+            </summary>
+        </member>
+        <member name="P:StarArisingBot.MinigameEngine.MinigameInstanceClient.MinigameInstances">
+            <summary>
+            Represents the instance of each loaded minigame module.
+            </summary>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameInstanceClient.StartAsync(System.Reflection.Assembly,DSharpPlus.DiscordClient)">
+            <summary>
+            Launch the minigame client.
+            </summary>
+            <param name="currentAssembly">The current Assembly.</param>
+            <param name="client">The current Discord Client connected.</param>
+        </member>
+        <member name="M:StarArisingBot.MinigameEngine.MinigameInstanceClient.GetInstanceAsync(System.Type)">
+            <summary>
+            Get the active instance of a minigame.
+            </summary>
+            <param name="minigameModuleType">The name of the desired instance.</param>
+            <returns>The required instance.</returns>
+        </member>
+    </members>
+</doc>

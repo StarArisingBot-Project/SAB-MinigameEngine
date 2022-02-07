@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SABMinigamesEngine
+namespace StarArisingBot.MinigameEngine
 {
     /// <summary>
     /// Represents a type of status message.

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>SABMinigameEngine</AssemblyName>
-    <RootNamespace>SABMinigamesEngine</RootNamespace>
+    <RootNamespace>StarArisingBot.MinigameEngine</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Starciad</Authors>
     <Description>The framework used for creating Minigames in the bot StarArisingBot.</Description>

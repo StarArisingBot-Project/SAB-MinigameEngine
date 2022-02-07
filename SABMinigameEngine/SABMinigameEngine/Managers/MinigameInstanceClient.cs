@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace SABMinigamesEngine
+namespace StarArisingBot.MinigameEngine
 {
     /// <summary>
     /// Manager responsible for controlling the flow of minigames.
@@ -25,11 +25,12 @@ namespace SABMinigamesEngine
         /// <summary>
         /// Launch the minigame client.
         /// </summary>
+        /// <param name="currentAssembly">The current Assembly.</param>
         /// <param name="client">The current Discord Client connected.</param>
-        public static async Task StartAsync(DiscordClient client)
+        public static async Task StartAsync(Assembly currentAssembly, DiscordClient client)
         {
             Client = client;
-            CurrentAssembly = typeof(MinigameInstanceClient).Assembly;
+            CurrentAssembly = currentAssembly;
 
             await GetMinigamesInstances();
             await StartMinigamesModules();

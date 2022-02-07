@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SABMinigamesEngine
+namespace StarArisingBot.MinigameEngine
 {
     /// <summary>
     /// The way the session is invoked.
@@ -62,7 +62,7 @@ namespace SABMinigamesEngine
         /// <summary>
         /// The session name;
         /// </summary>
-        public Optional<string> Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The way the session is invoked.
@@ -111,10 +111,9 @@ namespace SABMinigamesEngine
         {
             MinigameSessionInfos infos = new()
             {
-                Name = Name.Value,
+                Name = Name,
                 InvokeType = InvokeType,
                 AuthorType = AuthorType,
-
             };
 
             if (PlayersSettings == null)

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SABMinigamesEngine
+namespace StarArisingBot.MinigameEngine
 {
     /// <summary>
     /// The instance of a minigame.
@@ -15,13 +15,13 @@ namespace SABMinigamesEngine
         /// <summary>
         /// The minigame module.
         /// </summary>
-        public Type MinigameModule { get; private set; }
+        internal Type MinigameModule { get; private set; }
 
         /// <summary>
         /// Active sessions of the current Instance.
         /// </summary>
         public Dictionary<ulong, MinigameSession> Sessions { get; private set; }
-        public MinigameInstance(Type minigameModule)
+        internal MinigameInstance(Type minigameModule)
         {
             MinigameModule = minigameModule;
             Sessions = new();
@@ -35,6 +35,7 @@ namespace SABMinigamesEngine
         /// <param name="context">The context in which the session is being created.</param>
         /// <param name="minigame">The class of the mini game that is logged in.</param>
         /// <param name="minigameParams">The parameters that will be passed to the minigame.</param>
+        /// <param name="builder">The session rule builder.</param>
         /// <returns>The status of success.</returns>
         public async Task<MinigameStatusMessage> CreateNewSessionAsync(CommandContext context, MinigameModule minigame, MinigameSessionBuilder builder, params dynamic[] minigameParams)
         {
@@ -119,7 +120,7 @@ namespace SABMinigamesEngine
         /// <returns>Returns an active session.</returns>
         public async Task<MinigameSession> GetSessionAsync(ulong sectionID)
         {
-            return await Task.FromResult(Sessions.Where(x => x.Value.Context.Guild.Id == sectionID).FirstOrDefault().Value);
+            return await Task.FromResult(Sessions.Where(x => x.Value.SectionID == sectionID).FirstOrDefault().Value);
         }
 
         /// <summary>

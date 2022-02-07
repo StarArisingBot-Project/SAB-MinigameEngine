@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SABMinigamesEngine
+namespace StarArisingBot.MinigameEngine
 {
     /// <summary>
     /// Represents a minigame module.
@@ -57,7 +57,7 @@ namespace SABMinigamesEngine
             new Thread(() => StartMinigameThread(minigameParams)).Start();
 
             //Start Events
-            OnMinigameCanceled += OnCanceled;
+            OnMinigameCanceled += OnFinalized;
             OnMinigameStarted?.Invoke();
         }
         private async void StartMinigameThread(params dynamic[] minigameParams)
@@ -77,9 +77,11 @@ namespace SABMinigamesEngine
         protected abstract Task OnStarted(params dynamic[] minigameParams);
 
         /// <summary>
-        /// When a cancel request is initiated, this method will be executed.
+        /// When a termination or cancellation request is sent this method will be executed.
         /// </summary>
-        protected abstract Task OnCanceled();
+        /// 
+        /// <remarks>Use it as a way to discard the last elements of the minigame.</remarks>
+        protected abstract Task OnFinalized();
 
         /// <summary>
         /// Finish the current minigame. 
