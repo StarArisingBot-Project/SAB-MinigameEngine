@@ -10,7 +10,7 @@ In addition to creating minigames, it provides an extensive range of different c
 
 <br/><br/>
 
-# How it works? 
+# 🛠️ How it works? 
 This engine is an extension made for the StarArasingBot Bot that aims to help manage multiple minigames in one place, without API overload. In addition to helping to make Minigames, this engine also has interesting tools for organizing and controlling memory based on requests, instances and sessions. To see more, see the documentation. 
 <br/><br/>
 
