@@ -23,6 +23,6 @@ For more information on the documentation, see here.
 
 <br/>
 
-Now that you're probably all right, you can download this package from (Nuget)[]. The latest version will always be available for download. <br/><br/>
+Now that you're probably all right, you can download this package from [NuGet](https://www.nuget.org/packages/Starciad.SABMinigameEngine/1.0.0). The latest version will always be available for download. <br/><br/>
 
 <b>⚠️ ➥ As this framework is under development, changes without warnings may occur, so always stay tuned for the latest news to see what has changed.</b>
