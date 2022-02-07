@@ -1,9 +1,10 @@
 # <div align="center"> ✨ Star Arising Bot ✨ <br/> Minigame Engine</div>
 
 ![Bot Thumb](https://github.com/StarArisingBot-Project/SAB-MinigameEngine/blob/main/docs/images/StarArisingBot%20Thumb.png)
+[![NuGet](https://img.shields.io/nuget/vpre/Starciad.SABMinigameEngine.svg)](https://nuget.org/packages/Starciad.SABMinigameEngine)
 
 <br/>
-An Open-Source engine made for the Bot Star Arising Bot as an uncomplicated way to create new Minigames quickly without much work and in an intuitive and versatile way.<br/><br/>
+An Open-Source engine made for the Bot [Star Arising Bot](https://github.com/StarArisingBot-Project/StarArisingBot) as an uncomplicated way to create new Minigames quickly without much work and in an intuitive and versatile way.<br/><br/>
 In addition to creating minigames, it provides an extensive range of different configuration options for each scenario or specific need, in addition to dealing very well with high information traffic.
 <br/><br/>
 
