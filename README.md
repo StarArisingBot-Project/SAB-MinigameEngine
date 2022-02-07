@@ -4,8 +4,10 @@
 [![NuGet](https://img.shields.io/nuget/vpre/Starciad.SABMinigameEngine.svg)](https://nuget.org/packages/Starciad.SABMinigameEngine)
 
 <br/>
+
 An Open-Source engine made for the Bot [Star Arising Bot](https://github.com/StarArisingBot-Project/StarArisingBot) as an uncomplicated way to create new Minigames quickly without much work and in an intuitive and versatile way.<br/><br/>
 In addition to creating minigames, it provides an extensive range of different configuration options for each scenario or specific need, in addition to dealing very well with high information traffic.
+
 <br/><br/>
 
 # 📗 Documentation
@@ -17,10 +19,10 @@ For more information on the documentation, see here.
 <br/>
 
 ### Before downloading, see the requirements
-- You need to have Visual Studio 2019 (minimum version is 16.11.9) installed on your machine.
-- You need to have Git installed on your machine.
-- You need to have the DSharpPlus library included in the project.
-- You will need SDKs for .NET 4.5, 4.6, and 4.7. 
+- You need to have [Visual Studio 2019](https://visualstudio.microsoft.com/pt-br/vs/community/) (minimum version is 16.11.9) installed on your machine.
+- You need to have [Git](https://desktop.github.com) installed on your machine.
+- You need to have the [DSharpPlus Library](https://github.com/DSharpPlus/DSharpPlus) included in the project.
+- You will need [SDKs](https://dotnet.microsoft.com/en-us/download/visual-studio-sdks) for .NET 4.5, 4.6, and 4.7. 
 
 <br/>
 
