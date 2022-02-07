@@ -4,6 +4,29 @@
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>SABMinigameEngine</AssemblyName>
     <RootNamespace>SABMinigamesEngine</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Starciad</Authors>
+    <Description>The framework used for creating Minigames in the bot StarArisingBot.</Description>
+    <RepositoryUrl>https://github.com/StarArisingBot-Project/SAB-MinigameEngine</RepositoryUrl>
+    <PackageIcon>BotLogo.png</PackageIcon>
+    <PackageIconUrl />
+    <PackageTags>DsharpPlus, StarArisingBot, Framework, Engine, CSharp, Dotnet, dotnet-core</PackageTags>
+    <Title>SABMinigameEngine</Title>	  
+  </PropertyGroup>
+	
+
+	<PropertyGroup>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/StarArisingBot-Project/SAB-MinigameEngine</PackageProjectUrl>
+		<NeutralLanguage>en-us</NeutralLanguage>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageId>Starciad.SABMinigameEngine</PackageId>
+		<Product>Starciad.SABMinigameEngine</Product>
+		<RepositoryType>Open-Source</RepositoryType>
+	</PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Davi\Documents\Arquivos de Programação\Projetos e Outros\GitHub\StarArisingBot Project\SAB-MinigameEngine\SABMinigameEngine\SABMinigameEngine\SABMinigameEngine.xml</DocumentationFile>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -14,5 +37,12 @@
 		<PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="4.1.0-3.final" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="System.Drawing.Common" Version="6.0.2-mauipre.1.22054.8" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\..\..\..\..\..\Documentos\Assets de bots\Star Arising Bot\BotLogo.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
 	</ItemGroup>
 </Project>
