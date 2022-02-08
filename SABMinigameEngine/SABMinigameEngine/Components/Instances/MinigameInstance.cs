@@ -15,15 +15,15 @@ namespace StarArisingBot.MinigameEngine
         /// <summary>
         /// The minigame module.
         /// </summary>
-        internal Type MinigameModule { get; private set; }
+        internal Type MinigameModuleType { get; private set; }
 
         /// <summary>
         /// Active sessions of the current Instance.
         /// </summary>
         public Dictionary<ulong, MinigameSession> Sessions { get; private set; }
-        internal MinigameInstance(Type minigameModule)
+        internal MinigameInstance(Type minigameModuleType)
         {
-            MinigameModule = minigameModule;
+            MinigameModuleType = minigameModuleType;
             Sessions = new();
         }
 

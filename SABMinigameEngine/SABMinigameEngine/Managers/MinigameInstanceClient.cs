@@ -15,9 +15,8 @@ namespace StarArisingBot.MinigameEngine
         /// <summary>
         /// Represents the instance of each loaded minigame module.
         /// </summary>
-        public static MinigameInstance[] MinigameInstances { get; private set; }
+        public static List<MinigameInstance> MinigameInstances { get; private set; }
 
-        private static Assembly CurrentAssembly { get; set; }
         private static DiscordClient Client { get; set; }
 
         //======================================================//
@@ -25,53 +24,13 @@ namespace StarArisingBot.MinigameEngine
         /// <summary>
         /// Launch the minigame client.
         /// </summary>
-        /// <param name="currentAssembly">The current Assembly.</param>
         /// <param name="client">The current Discord Client connected.</param>
-        public static async Task StartAsync(Assembly currentAssembly, DiscordClient client)
+        public static async Task StartAsync(DiscordClient client)
         {
             Client = client;
-            CurrentAssembly = currentAssembly;
+            MinigameInstances = new List<MinigameInstance>();
 
-            await GetMinigamesInstances();
-            await StartMinigamesModules();
-
-            //==========================//
-            MinigameConsoleDebug();
-        }
-
-        private static void MinigameConsoleDebug()
-        {
-            string minigames = "";
-            foreach (MinigameInstance minigame in MinigameInstances)
-            {
-                minigames += $"> {minigame.MinigameModule.Name} \n";
-            }
-
-            Console.WriteLine($"\n=================\n" +
-
-                              $"INSTANCES LOADED: \n\n" +
-
-                              $"{minigames}" +
-
-                              $"\n=================\n");
-        }
-        private static Task GetMinigamesInstances()
-        {
-            List<MinigameInstance> instances = new();
-            foreach (Type minigame in CurrentAssembly.GetTypes().Where(x => x.IsSubclassOf(typeof(MinigameModule))))
-            {
-                if (minigame.Name.EndsWith("Minigame"))
-                {
-                    instances.Add(new MinigameInstance(minigame));
-                }
-            }
-
-            MinigameInstances = instances.ToArray();
-            return Task.CompletedTask;
-        }
-        private static Task StartMinigamesModules()
-        {
-            return Task.CompletedTask;
+            await Task.CompletedTask;
         }
 
         //======================================================//
@@ -82,7 +41,21 @@ namespace StarArisingBot.MinigameEngine
         /// <returns>The required instance.</returns>
         public static async Task<MinigameInstance> GetInstanceAsync(Type minigameModuleType)
         {
-            return await Task.FromResult(MinigameInstances.Where(x => x.MinigameModule == minigameModuleType).FirstOrDefault());
+            return await Task.FromResult(MinigameInstances.Where(x => x.MinigameModuleType == minigameModuleType).FirstOrDefault());
+        }
+
+        /// <summary>
+        /// Register a minigame module on the instances.
+        /// </summary>
+        /// <typeparam name="T">A class that is a minigame module.</typeparam>
+        public static void RegisterMinigameModule<T>() where T : MinigameModule
+        {
+            Type minigameModuleType = typeof(T);
+
+            if (minigameModuleType.Name.EndsWith("Minigame"))
+            {
+                MinigameInstances.Add(new MinigameInstance(minigameModuleType));
+            }
         }
     }
 }

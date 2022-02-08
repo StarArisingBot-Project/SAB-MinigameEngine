@@ -23,6 +23,9 @@
 		<PackageId>Starciad.SABMinigameEngine</PackageId>
 		<Product>Starciad.SABMinigameEngine</Product>
 		<RepositoryType>Open-Source</RepositoryType>
+		<Version>1.0.3</Version>
+		<AssemblyVersion>1.0.3.0</AssemblyVersion>
+		<FileVersion>1.0.3.0</FileVersion>
 	</PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
